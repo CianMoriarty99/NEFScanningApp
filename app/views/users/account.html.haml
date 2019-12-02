@@ -1,0 +1,21 @@
+%h1 Account
+%p#notice= notice
+
+%p
+  %b Username:
+  = current_user.username
+%p
+  %b Email:
+  = current_user.email
+%p
+  %b Name:
+  = current_user.name
+%p
+  %b Certificate of Attendance?
+= link_to "Request", request_certificate_booking_path(@booking), method: :put, :class => "btn btn-default"
+= link_to "Cancel Request", cancel_certificate_booking_path(@booking), method: :put, :class => "btn btn-default"
+
+%br
+%br
+= link_to 'Edit Account', "/users/editU", :class => "btn btn-primary"
+= link_to 'Change Password', "/users/changepw", :class => "btn btn-primary"

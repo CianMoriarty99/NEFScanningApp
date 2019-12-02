@@ -1,0 +1,10 @@
+%h1 Editing user: #{@user.username}
+
+- if @user.access == 2
+  = render 'form0'
+- else
+  = render 'form1'
+%br
+= link_to 'Show', @user, :class => "btn btn-default"
+\|
+= link_to 'Back', users_path, :class => "btn btn-default"

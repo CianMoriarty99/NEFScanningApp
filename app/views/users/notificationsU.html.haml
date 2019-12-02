@@ -1,0 +1,19 @@
+%h3 Notifications
+.table-responsive
+%table.table.table-striped
+  %thead
+    %tr
+      %th Notification Name
+      %th Time
+      %th
+      %th
+      %th
+
+  %tbody
+    - @notifications.each do |notification|
+      %tr
+        %td= notification.not_id
+        %td= notification.time
+        %td= link_to 'Show', showU_notification_path(notification), :class => 'btn btn-default'
+
+%br

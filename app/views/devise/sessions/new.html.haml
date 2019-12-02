@@ -1,0 +1,16 @@
+#wrap
+  .row
+    .col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
+      .logo
+        = image_tag "/qr-code.png", width: 40
+        NEF Scanning App
+      .panel.panel-default.margin-top-20
+        .panel-heading
+          %h2.panel-title Log In
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .panel-body
+            = f.input :username, autofocus: true
+            = f.input :password
+          .panel-footer
+            = submit_button 'Log in'
+            .margin-top-10= render "devise/shared/links"

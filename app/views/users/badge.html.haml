@@ -1,0 +1,14 @@
+%h1 Badge
+
+- @bookingUserID.each do |b|
+  .card
+    %p.days
+      = b.ticket_type > 1 ? " #{b.ticket_type} Days " : " #{b.ticket_type} Day "
+    %h1{style: 'margin: 0 auto'}
+      = current_user.name
+    %h3{style: 'margin: 10px auto 20px'}
+      = current_user.institution
+
+    %img{src: '/badge-temp.png', class: "card-img-responsive", id: "badge"}
+
+%br

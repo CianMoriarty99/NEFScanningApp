@@ -1,0 +1,53 @@
+%p#notice= notice
+
+%p
+  %b Booking reference:
+  = @booking.booking_reference
+
+%p
+  %b Institution:
+  = @booking.institution
+%p
+  %b Ticket type:
+  = @booking.ticket_type > 1 ? " #{@booking.ticket_type} Days " : " #{@booking.ticket_type} Day "
+
+-if @booking.access_req != ""
+  %p
+    %b Access requirements:
+    = @booking.access_req
+%p
+  %b Catering:
+  -if @booking.catering == true
+    = "Yes"
+  -else
+    = "No"
+%p
+  %b Certificate:
+  -if @booking.certificate == true
+    = "Yes"
+  -else
+    = "No"
+%p
+  %b Attended:
+  -if @booking.attended == true
+    = "Yes"
+  -else
+    = "No"
+%p
+  %b Dietary requirements:
+  -if @booking.dietary_req == "" || @booking.dietary_req.nil?
+    = "None specified"
+  -else
+    = @booking.dietary_req
+%p
+  %b Conference:
+  = @booking.conference.name
+%p
+  %b User:
+  = @booking.user.username
+
+
+
+= link_to 'Edit', edit_booking_path(@booking), :class => 'btn btn-default'
+\|
+= link_to 'Back', bookings_path, :class => 'btn btn-default'

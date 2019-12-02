@@ -1,0 +1,13 @@
+-# frozen_string_literal: true
+= simple_form_for(@timetable) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :timetable_image_file, as: :file
+    = f.hidden_field :timetable_image_file_cache
+    = f.association :conference, prompt: "Select a Conference"
+
+
+  .form-actions
+    = f.button :submit, 'Upload Timetable', :class => 'btn btn-primary'
